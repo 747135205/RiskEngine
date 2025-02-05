@@ -2,7 +2,7 @@ spring:
   redis:
     # 集群
     cluster:
-      # 集群地址
+      # 集群地址：三主三从模式部署
       nodes:
         redis:7000,redis:7001,redis:7002,redis:7003,redis:7004,redis:7005
 
