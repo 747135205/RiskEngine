@@ -1,11 +1,5 @@
 package flink.utils;
 
-import com.juege.RiskCtrlSys.flink.job.broadcast.CepKeyedBroadcastProcessFunc;
-import com.juege.RiskCtrlSys.flink.job.broadcast.RulesKeyedBroadcastProcessFunc;
-import com.juege.RiskCtrlSys.model.EventPO;
-import com.juege.RiskCtrlSys.model.RedisPO;
-import com.juege.RiskCtrlSys.model.RulesPO;
-import com.juege.RiskCtrlSys.model.SingleRulePO;
 import org.apache.flink.api.common.state.MapStateDescriptor;
 import org.apache.flink.api.common.typeinfo.BasicTypeInfo;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
@@ -14,10 +8,10 @@ import org.apache.flink.streaming.api.datastream.*;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 /**
- * author: Juege
- * description: 风控规则工具类
- * date: 2023
- */
+* @Author: 123
+* @Description:
+* @DateTime: 2024
+*/
 
 public class RuleUtil {
 
@@ -31,13 +25,11 @@ public class RuleUtil {
 
 
 
-    /**
-     * author: Juege
-     * description: 名单遍历, 判断是否在名单中
-     * @param rosterType:  名单类型
-     * @param uid:
-     * @return boolean
-     */
+/**
+* @Author: 123
+* @Description: traversalRoster
+* @DateTime: 2024
+*/
     public static boolean traversalRoster(
             String rosterType,
             Integer uid) {
@@ -54,12 +46,11 @@ public class RuleUtil {
     }
 
 
-    /**
-     * author: Juege
-     * description: 规则组内的规则遍历
-     * @param event_name: 行为事件名称
-     * @return boolean
-     */
+ /**
+ * @Author: 123
+ * @Description: traversalRules
+ * @DateTime: 2024
+ */
     public static boolean traversalRules(
             String event_name,
             RulesPO rules) {
@@ -92,12 +83,11 @@ public class RuleUtil {
         return judgeTag;
     }
 
-    /**
-     * author: Juege
-     * description: 规则判断
-     * @param rule:
-     * @return boolean
-     */
+/**
+* @Author: 123
+* @Description: ruleJudgment
+* @DateTime: 2024
+*/
     public static boolean ruleJudgment(SingleRulePO rule) {
 
         /* **********************
@@ -112,14 +102,11 @@ public class RuleUtil {
         return true;
     }
 
-    /**
-     * author: Juege
-     * description: 生成规则组广播流
-     * @param env:
-     * @param parameterTool:
-     * @param set_code:
-     * @return org.apache.flink.streaming.api.datastream.BroadcastStream<com.juege.RiskCtrlSys.model.RulesPO>
-     */
+/**
+* @Author: 123
+* @Description: doRuleBroadcastStream
+* @DateTime: 2024
+*/
     public static SingleOutputStreamOperator<EventPO> doRuleBroadcastStream(
             StreamExecutionEnvironment env,
             ParameterTool parameterTool,
@@ -151,14 +138,14 @@ public class RuleUtil {
 
 
     /**
-     * author: Juege
+     * author: 123
      * description: 生成cep pattern广播流
      * @param env:
      * @param parameterTool:
      * @param rulesStream:
      * @param keyedStream:
      * @param set_code:
-     * @return org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator<com.juege.RiskCtrlSys.model.EventPO>
+     * @return org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator<com.RiskCtrlSys.model.EventPO>
      */
     public static SingleOutputStreamOperator<EventPO> doPatternBroadcastStream(
             StreamExecutionEnvironment env,

@@ -1,10 +1,10 @@
 package flink.utils;
 
 /**
- * author: Juege
- * description: 行为事件名称工具类
- * date: 2023
- */
+* @Author: 123
+* @Description:
+* @DateTime: 2024
+*/
 
 public class EventConstantUtil {
 

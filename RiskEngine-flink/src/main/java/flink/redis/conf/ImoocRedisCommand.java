@@ -3,19 +3,19 @@ package flink.redis.conf;
 import lombok.Getter;
 
 /**
- * author: Juege
- * description: Redis命令的枚举类
- * date: 2023
- */
+* @Author: 123
+* @Description: JRedisCommand
+* @DateTime: 2025/2/22 15:23
+*/
 
 @Getter
-public enum JuegeRedisCommand {
+public enum JRedisCommand {
 
-    GET(JuegeRedisDataType.STRING);
+    GET(JRedisDataType.STRING);
 
-    private JuegeRedisDataType juegeRedisDataType;
+    private JRedisDataType jRedisDataType;
 
-    JuegeRedisCommand(JuegeRedisDataType juegeRedisDataType) {
-        this.juegeRedisDataType = juegeRedisDataType;
+    JRedisCommand(JRedisDataType jRedisDataType) {
+        this.jRedisDataType = jRedisDataType;
     }
 }

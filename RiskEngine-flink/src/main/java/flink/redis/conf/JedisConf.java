@@ -1,6 +1,6 @@
 package flink.redis.conf;
 
-import com.juege.RiskCtrlSys.flink.utils.ParameterUtil;
+
 import org.apache.flink.api.java.utils.ParameterTool;
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.JedisCluster;
@@ -10,10 +10,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * author: Juege
- * description: Jedis配置类~
- * date: 2023
- */
+* @Author: 123
+* @Description: JedisConf
+* @DateTime: 2025/2/22
+*/
 
 public class JedisConf {
 

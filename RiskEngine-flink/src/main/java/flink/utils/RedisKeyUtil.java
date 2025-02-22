@@ -1,18 +1,18 @@
 package flink.utils;
 
 /**
- * author: Juege
- * description: Redis 键名工具类
- * date: 2023
- */
+* @Author: 123
+* @Description:
+* @DateTime: 2024
+*/
 
 public class RedisKeyUtil {
 
-    /**
-     * author: Juege
-     * description: 指标 Redis Key组装
-     * @return java.lang.String
-     */
+/**
+* @Author: 123
+* @Description: redisKeyFormatForMetric
+* @DateTime: 2024
+*/
     public static String redisKeyFormatForMetric(String keyby) {
 
         /* **********************

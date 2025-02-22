@@ -1,18 +1,16 @@
 package flink.utils;
 
-import com.juege.RiskCtrlSys.flink.clickhouse.sink.ClickHouseJdbcSink;
-import com.juege.RiskCtrlSys.flink.clickhouse.source.ClickHouseSource;
-import com.juege.RiskCtrlSys.model.CHTestPO;
+
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSink;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 /**
- * author: Juege
- * description: flink clickhouse读写工具类
- * date: 2023
- */
+* @Author: 123
+* @Description: ClickHouseUtil
+* @DateTime: 2024
+*/
 
 public class ClickHouseUtil<T> {
 
@@ -24,26 +22,21 @@ public class ClickHouseUtil<T> {
 
     }
 
-    /**
-     * author: Juege
-     * description: 读取clickhouse
-     * @param env:
-     * @param sql:
-     * @return org.apache.flink.streaming.api.datastream.DataStream<T>
-     */
+/**
+* @Author: 123
+* @Description: read
+* @DateTime: 2024
+*/
     public static  DataStream<CHTestPO> read(StreamExecutionEnvironment env, String sql) {
         return env.addSource(new ClickHouseSource(URL,sql));
     }
 
 
-    /**
-     * author: Juege
-     * description: 批量写入ClickHouse
-     * @param dataStream:
-     * @param sql:
-     * @param batchSize:
-     * @return org.apache.flink.streaming.api.datastream.DataStreamSink<com.juege.RiskCtrlSys.model.CHTestPO>
-     */
+/**
+* @Author: 123
+* @Description: batchWrite
+* @DateTime: 2024
+*/
     public static <T> DataStreamSink<T> batchWrite(
             DataStream<T> dataStream,
             String sql,

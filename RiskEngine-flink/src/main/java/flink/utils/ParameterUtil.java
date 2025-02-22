@@ -1,7 +1,5 @@
 package flink.utils;
 
-import com.juege.RiskCtrlSys.commons.exception.custom.FlinkPropertiesException;
-import com.juege.RiskCtrlSys.commons.exception.enums.FlinkPropertiesExceptionInfo;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.runtime.state.hashmap.HashMapStateBackend;
 import org.apache.flink.streaming.api.CheckpointingMode;
@@ -12,10 +10,10 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * author: Juege
- * description: 配置信息读取类
- * date: 2023
- */
+* @Author: 123
+* @Description:
+* @DateTime: 2024
+*/
 
 /* **********************
  *
@@ -81,11 +79,11 @@ public class ParameterUtil {
      */
     private static final String ENV_ACTIVE = ParameterConstantsUtil.FLINK_ENV_ACTIVE;
 
-    /**
-     * author: Juege
-     * description: 配置文件+启动参数+系统环境变量 生成ParameterTool
-     * @return org.apache.flink.api.java.utils.ParameterTool
-     */
+/**
+* @Author: 123
+* @Description: getParameters
+* @DateTime: 2024
+*/
     public static ParameterTool getParameters(final String[] args) {
 
         /* **********************
@@ -139,12 +137,11 @@ public class ParameterUtil {
     }
 
 
-    /**
-     * author: Juege
-     * description: 配置文件+系统环境变量 生成ParameterTool
-     * @param :
-     * @return org.apache.flink.api.java.utils.ParameterTool
-     */
+/**
+* @Author: 123
+* @Description: getParameters
+* @DateTime: 2024
+*/
     public static ParameterTool getParameters() {
 
 
@@ -185,13 +182,11 @@ public class ParameterUtil {
             throw new FlinkPropertiesException(FlinkPropertiesExceptionInfo.PROPERTIES_NULL);
         }
     }
-
-    /**
-     * author: Juege
-     * description: 获取环境配置变量
-     * @param defaultPropertiesFile:
-     * @return java.lang.String
-     */
+/**
+* @Author: 123
+* @Description: getEnvActiveValue
+* @DateTime: 2024
+*/
     private static String getEnvActiveValue(ParameterTool defaultPropertiesFile) {
         //选择参数环境
         String envActive = null;
@@ -201,14 +196,11 @@ public class ParameterUtil {
 
         return envActive;
     }
-
-    /**
-     * author: Juege
-     * description: 从配置文件参数配置流式计算的上下文环境
-     * @param env:
-     * @param parameterTool:
-     * @return org.apache.flink.streaming.api.environment.StreamExecutionEnvironment
-     */
+/**
+* @Author: 123
+* @Description: envWithConfig
+* @DateTime: 2024
+*/
     public static void envWithConfig(
             StreamExecutionEnvironment env,
             ParameterTool parameterTool

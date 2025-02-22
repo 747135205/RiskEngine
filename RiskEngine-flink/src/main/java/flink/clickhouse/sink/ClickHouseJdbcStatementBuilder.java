@@ -7,20 +7,18 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
- * author: Juege
- * description: 对sql语句的预编译 select * from xx where xx=? 2
- * date: 2023
- */
+* @Author: 123
+* @Description: ClickHouseJdbcStatementBuilder
+* @DateTime: 2025/2/22 15:21
+*/
 
 public class ClickHouseJdbcStatementBuilder<T> implements JdbcStatementBuilder<T> {
 
-    /**
-     * author: Juege
-     * description:
-     * @param preparedStatement: PreparedStatement对象
-     * @param t:  clickhouse表的PO对象
-     * @return void
-     */
+/**
+* @Author: 123
+* @Description: accept
+* @DateTime: 2025/2/22 15:22
+*/
     @Override
     public void accept(PreparedStatement preparedStatement, T t) throws SQLException {
 

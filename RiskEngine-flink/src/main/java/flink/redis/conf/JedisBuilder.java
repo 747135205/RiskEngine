@@ -3,16 +3,16 @@ package flink.redis.conf;
 import redis.clients.jedis.JedisCluster;
 
 /**
- * author: Juege
- * description: 封装Jedis对象的redis方法
- * date: 2023
- */
+* @Author: 123
+* @Description: Builder
+* @DateTime: 2025/2/22
+*/
 
-public class JedisBuilder {
+public class JBuilder {
 
     private JedisCluster jedis = null;
 
-    public JedisBuilder(JedisCluster jedisCluster) {
+    public JBuilder(JedisCluster jedisCluster) {
         this.jedis = jedisCluster;
     }
 
@@ -23,7 +23,7 @@ public class JedisBuilder {
     }
 
     /**
-     * author: Juege
+     * author: 123
      * description: Redis的Get方法
      * @param key:  redis key
      * @return java.lang.String

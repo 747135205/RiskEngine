@@ -6,10 +6,10 @@ import org.apache.flink.streaming.connectors.redis.common.mapper.RedisCommandDes
 import org.apache.flink.streaming.connectors.redis.common.mapper.RedisMapper;
 
 /**
- * author: Juege
- * description: 基于apache bachir flink的RedisSink，作用于Redis String数据类型
- * date: 2023
- */
+* @Author: 123
+* @Description:
+* @DateTime: 2025
+*/
 
 /* **********************
  *
@@ -23,12 +23,11 @@ import org.apache.flink.streaming.connectors.redis.common.mapper.RedisMapper;
  * *********************/
 public class RedisSinkByBahirWithString implements RedisMapper<Tuple2<String,String>> {
 
-    /**
-     * author: Juege
-     * description: 指定Redis的命令
-     * @param :
-     * @return org.apache.flink.streaming.connectors.redis.common.mapper.RedisCommandDescription
-     */
+ /**
+ * @Author: 123
+ * @Description: getCommandDescription
+ * @DateTime: 2025
+ */
     @Override
     public RedisCommandDescription getCommandDescription() {
         /* **********************
@@ -41,23 +40,21 @@ public class RedisSinkByBahirWithString implements RedisMapper<Tuple2<String,Str
         return new RedisCommandDescription(RedisCommand.SET);
     }
 
-    /**
-     * author: Juege
-     * description: 从数据流里获取Key值
-     * @param input:
-     * @return java.lang.String
-     */
+/**
+* @Author: 123
+* @Description: getKeyFromData
+* @DateTime: 2025
+*/
     @Override
     public String getKeyFromData(Tuple2<String,String> input) {
         return input.f0;
     }
 
-    /**
-     * author: Juege
-     * description: 从数据流里获取Value值
-     * @param input:
-     * @return java.lang.String
-     */
+/**
+* @Author: 123
+* @Description: getValueFromData
+* @DateTime: 2025
+*/
     @Override
     public String getValueFromData(Tuple2<String,String> input) {
         return input.f1;

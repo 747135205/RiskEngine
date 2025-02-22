@@ -6,23 +6,18 @@ import org.apache.flink.streaming.api.functions.co.ProcessJoinFunction;
 import org.apache.flink.streaming.api.windowing.time.Time;
 
 /**
- * author: Juege
- * description: 多流Join工具类
- * date: 2023
- */
+* @Author: 123
+* @Description:
+* @DateTime: 2024
+*/
 
 public class JoinUtil {
 
-    /**
-     * author: Juege
-     * description: 双流Join (使用 intervalJoin 算子)
-     * @param a:
-     * @param b:
-     * @param lowerBound: 下界
-     * @param upperBound: 上界
-     * @param processJoinFunction:
-     * @return org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator<Out>
-     */
+/**
+* @Author: 123
+* @Description: intervalJoinStream
+* @DateTime: 2024
+*/
     public static <A,B,Out> SingleOutputStreamOperator<Out> intervalJoinStream(
             KeyedStream<A,String> a,
             KeyedStream<B,String> b,

@@ -1,9 +1,6 @@
 package flink.utils;
 
-import com.juege.RiskCtrlSys.flink.job.map.KafkaETL;
-import com.juege.RiskCtrlSys.flink.kafka.JuegeDeserializationSchema;
-import com.juege.RiskCtrlSys.model.EventPO;
-import com.juege.RiskCtrlSys.model.KafkaMessagePO;
+
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.connector.kafka.source.KafkaSource;
@@ -13,10 +10,10 @@ import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 /**
- * author: Juege
- * description: Flink 读写Kafka工具类
- * date: 2023
- */
+* @Author: 123
+* @Description:
+* @DateTime: 2024
+*/
 
 public class KafkaUtil {
 
@@ -29,12 +26,11 @@ public class KafkaUtil {
     private static ParameterTool parameterTool = null;
 
 
-     /**
-      * author: Juege
-      * description: 重载 initEnv 方法
-      * @param args:
-      * @return void
-      */
+/**
+* @Author: 123
+* @Description: initEnv
+* @DateTime: 2024
+*/
     private static void initEnv(String[] args) {
 
         //ParameterTool 注册为 global
@@ -43,13 +39,11 @@ public class KafkaUtil {
         // 配置上下文环境
         ParameterUtil.envWithConfig(env,parameterTool);
     }
-
-    /**
-     * author: Juege
-     * description: 重载 initEnv 方法
-     * @param :
-     * @return void
-     */
+/**
+* @Author: 123
+* @Description: initEnv
+* @DateTime: 2024
+*/
     private static void initEnv() {
 
         //ParameterTool 注册为 global
@@ -58,12 +52,11 @@ public class KafkaUtil {
         ParameterUtil.envWithConfig(env,parameterTool);
     }
 
-    /**
-     * author: Juege
-     * description: KafkaSource 初始化
-     * @param :
-     * @return void
-     */
+/**
+* @Author: 123
+* @Description: kafkaSourceBuilder
+* @DateTime: 2024
+*/
     private static void kafkaSourceBuilder() {
 
         String brokers = parameterTool.get(ParameterConstantsUtil.KAFKA_BROKERS);
@@ -127,17 +120,15 @@ public class KafkaUtil {
                  * SimpleStringScheme类只是将Kafka反序列后的数据转化 DataStream<String>
                  *
                  * *********************/
-                .setDeserializer(KafkaRecordDeserializationSchema.of(new JuegeDeserializationSchema()))
+                .setDeserializer(KafkaRecordDeserializationSchema.of(new JDeserializationSchema()))
                 //.setValueOnlyDeserializer(new SimpleStringSchema())
                 .build();
     }
-
-    /**
-     * author: Juege
-     * description: 添加Source
-     * @param :
-     * @return org.apache.flink.streaming.api.datastream.DataStream<com.juege.RiskCtrlSys.model.EventPO>
-     */
+/**
+* @Author: 123
+* @Description: makeEventStream
+* @DateTime: 2024
+*/
     private static DataStream<EventPO> makeEventStream() {
         /* **********************
          *
@@ -159,12 +150,11 @@ public class KafkaUtil {
                 .map(new KafkaETL());
     }
 
-    /**
-     * author: Juege
-     * description:  生成行为事件流 (重载 read 方法)
-     * @param args:  Flink 配置包含启动参数
-     * @return void
-     */
+/**
+* @Author: 123
+* @Description: read
+* @DateTime: 2024
+*/
     public static DataStream<EventPO> read(
             String[] args) {
 
@@ -177,10 +167,10 @@ public class KafkaUtil {
     }
 
     /**
-     * author: Juege
+     * author: 123
      * description: 生成行为事件流 (重载 read 方法)
      * @param parameter:  ParameterTool 对象 (不包含启动参数, 项目中主要用于单元测试)
-     * @return org.apache.flink.streaming.api.datastream.DataStream<com.juege.RiskCtrlSys.model.EventPO>
+     * @return org.apache.flink.streaming.api.datastream.DataStream<com.RiskCtrlSys.model.EventPO>
      */
     public static DataStream<EventPO> read(
             ParameterTool parameter) {

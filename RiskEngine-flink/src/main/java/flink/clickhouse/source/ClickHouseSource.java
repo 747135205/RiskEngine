@@ -2,7 +2,6 @@ package flink.clickhouse.source;
 
 import com.clickhouse.jdbc.ClickHouseConnection;
 import com.clickhouse.jdbc.ClickHouseDataSource;
-import com.juege.RiskCtrlSys.model.CHTestPO;
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
 
 import java.sql.ResultSet;
@@ -10,10 +9,10 @@ import java.sql.Statement;
 import java.util.Properties;
 
 /**
- * author: Juege
- * description: Flink Clickhouse Source
- * date: 2023
- */
+* @Author: 123
+* @Description: ClickHouseSource
+* @DateTime: 2025/2/22 15:22
+*/
 
 /* **********************
  *

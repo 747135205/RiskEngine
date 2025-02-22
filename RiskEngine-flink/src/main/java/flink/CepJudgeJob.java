@@ -1,11 +1,6 @@
 package flink;
 
-import com.juege.RiskCtrlSys.commons.constants.ConstantsUtil;
-import com.juege.RiskCtrlSys.flink.job.cep.pattern.DynamicPattern;
-import com.juege.RiskCtrlSys.flink.job.watermark.MetricTimestampAssigner;
-import com.juege.RiskCtrlSys.flink.utils.KafkaUtil;
-import com.juege.RiskCtrlSys.flink.utils.ParameterUtil;
-import com.juege.RiskCtrlSys.model.EventPO;
+
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.cep.CEP;
@@ -20,10 +15,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * author: Juege
- * description: 基于cep Pattern 的动态风控规则判断 Job ( 1个Job运行1条cep pattern )
- * date: 2023
- */
+* @Author: 123
+* @Description:
+* @DateTime: 2024
+*/
 
 
 public class CepJudgeJob {
@@ -106,7 +101,7 @@ public class CepJudgeJob {
          *
          * *********************/
 
-        PatternStream<EventPO> patternStream = CEP.juegePatternStream(keyedStream, new DynamicPattern<EventPO>(groovy_clazz,rule_code)).inEventTimeJuege();
+        PatternStream<EventPO> patternStream = CEP.jPatternStream(keyedStream, new DynamicPattern<EventPO>(groovy_clazz,rule_code)).inEventTimeJuege();
 
         /* **********************
          *

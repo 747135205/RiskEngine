@@ -1,10 +1,10 @@
 package flink.utils;
 
 /**
- * author: Juege
- * description: 配置参数名称工具类
- * date: 2023
- */
+* @Author: 123
+* @Description:
+* @DateTime: 2024
+*/
 
 public class ParameterConstantsUtil {
 
@@ -99,7 +99,7 @@ public class ParameterConstantsUtil {
      *
      * *********************/
     //累加器计算方法模型包路径
-    public static final String PACKAGE_AGGREGATE_ACC = "com.juege.RiskCtrlSys.flink.job.aggregate.acc";
+    public static final String PACKAGE_AGGREGATE_ACC = "com.j.RiskCtrlSys.flink.job.aggregate.acc";
 
 
 }

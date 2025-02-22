@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * author: Juege
+ * author: 123
  * description: Flink CDC 工具类
  * date: 2023
  */
@@ -138,7 +138,7 @@ public class FlinkCDCUtil {
                  * 注意：
                  *
                  * 1. tableList() 是不定参数
-                 * 2. 表名必须加上库名  "juege.mysql_test","juege2.mysql_tst2"
+                 * 2. 表名必须加上库名  "j.mysql_test","j2.mysql_tst2"
                  *
                  * *********************/
                 .tableList(tableList)

@@ -1,18 +1,6 @@
 package flink;
 
-import com.juege.RiskCtrlSys.flink.job.aggregation.MetricAggFunction;
-import com.juege.RiskCtrlSys.flink.job.filter.MetricFilter;
-import com.juege.RiskCtrlSys.flink.job.keyby.MetricKeyBy;
-import com.juege.RiskCtrlSys.flink.job.map.MetricConfFlatMap;
-import com.juege.RiskCtrlSys.flink.job.map.MetricMapForRedisKey;
-import com.juege.RiskCtrlSys.flink.job.watermark.MetricTimestampAssigner;
-import com.juege.RiskCtrlSys.flink.job.window.MetricWindowAssigner;
-import com.juege.RiskCtrlSys.flink.job.window.MetricWindowFunction;
-import com.juege.RiskCtrlSys.flink.utils.KafkaUtil;
-import com.juege.RiskCtrlSys.flink.utils.ParameterConstantsUtil;
-import com.juege.RiskCtrlSys.flink.utils.ParameterUtil;
-import com.juege.RiskCtrlSys.flink.utils.RedisWriteUtil;
-import com.juege.RiskCtrlSys.model.EventPO;
+
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.utils.ParameterTool;
@@ -22,11 +10,10 @@ import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import java.time.Duration;
 
 /**
- * author: Juege
- * description: 基于通用计算框架进行的指标聚合计算 Job (一个Job一个指标)
- *              主要用于非实时的指标计算, 即窗口长度会以天, 周作为单位
- * date: 2023
- */
+* @Author: 123
+* @Description:
+* @DateTime: 2024
+*/
 
 /* **********************
  *

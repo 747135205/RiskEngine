@@ -1,19 +1,15 @@
 package flink.redis.source;
 
-import com.juege.RiskCtrlSys.flink.redis.conf.JedisBuilder;
-import com.juege.RiskCtrlSys.flink.redis.conf.JedisConf;
-import com.juege.RiskCtrlSys.flink.redis.conf.JuegeRedisCommand;
-import com.juege.RiskCtrlSys.model.RedisPO;
 import org.apache.flink.api.common.state.ListState;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.source.RichSourceFunction;
 import redis.clients.jedis.JedisCluster;
 
 /**
- * author: Juege
- * description: Flink 自定义Redis Source读取Redis
- * date: 2023
- */
+* @Author: 123
+* @Description: JRedisSource
+* @DateTime: 2024
+*/
 
 /* **********************
  *
@@ -39,17 +35,17 @@ import redis.clients.jedis.JedisCluster;
  * RichSourceFunction 的并行度只能是1
  *
  * *********************/
-public class JuegeRedisSource extends RichSourceFunction<RedisPO> {
+public class JRedisSource extends RichSourceFunction<RedisPO> {
 
     /**
      * Jedis对象
      */
-    private JedisBuilder jedisBuilder;
+    private JBuilder jedisBuilder;
 
     /**
      * Redis命令枚举对象
      */
-    private final JuegeRedisCommand juegeRedisCommand;
+    private final JRedisCommand jRedisCommand;
 
     /**
      * redis key
@@ -62,8 +58,8 @@ public class JuegeRedisSource extends RichSourceFunction<RedisPO> {
      */
     private transient ListState<RedisPO> patternState;
 
-    public JuegeRedisSource(JuegeRedisCommand juegeRedisCommand, String key) {
-        this.juegeRedisCommand = juegeRedisCommand;
+    public JRedisSource(JRedisCommand jRedisCommand, String key) {
+        this.jRedisCommand = jRedisCommand;
         this.key = key;
     }
 
@@ -77,7 +73,7 @@ public class JuegeRedisSource extends RichSourceFunction<RedisPO> {
     private volatile boolean isRunning = true;
 
     /**
-     * author: Juege
+     * author: 123
      * description: Redis数据的读取
      * @param output:
      * @return void
@@ -94,7 +90,7 @@ public class JuegeRedisSource extends RichSourceFunction<RedisPO> {
         String data = null;
         //while (isRunning) {
 
-            switch (juegeRedisCommand.getJuegeRedisDataType()) {
+            switch (jRedisCommand.getjRedisDataType()) {
                 case STRING :
                     data = jedisBuilder.get(key);
             }
@@ -112,7 +108,7 @@ public class JuegeRedisSource extends RichSourceFunction<RedisPO> {
     }
 
     /**
-     * author: Juege
+     * author: 123
      * description: Redis的连接初始化
      * @param parameters:
      * @return void
@@ -120,7 +116,7 @@ public class JuegeRedisSource extends RichSourceFunction<RedisPO> {
     @Override
     public void open(Configuration parameters) throws Exception {
         JedisCluster jedisCluster = JedisConf.getJedisCluster();
-        jedisBuilder = new JedisBuilder(jedisCluster);
+        jedisBuilder = new JBuilder(jedisCluster);
 
     }
 

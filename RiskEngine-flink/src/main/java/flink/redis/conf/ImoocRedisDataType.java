@@ -3,13 +3,13 @@ package flink.redis.conf;
 import lombok.Getter;
 
 /**
- * author: Juege
- * description: Redis数据类型的枚举类
- * date: 2023
- */
+* @Author: 123
+* @Description: JRedisDataType
+* @DateTime: 2025/2/22
+*/
 
 @Getter
-public enum JuegeRedisDataType {
+public enum JRedisDataType {
 
     STRING,
     HASH,
@@ -18,6 +18,6 @@ public enum JuegeRedisDataType {
     SORTED_SET,
     ;
 
-    JuegeRedisDataType() {
+    JRedisDataType() {
     }
 }

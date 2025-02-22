@@ -10,10 +10,10 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
- * author: Juege
- * description: 使用 Flink-jdbc-connector + 批量写入 + sql语句的预编译 写入 Clickhouse
- * date: 2023
- */
+* @Author: 123
+* @Description: ClickHouseJdbcSink
+* @DateTime: 2025/2/22 15:22
+*/
 
 /* **********************
  *
@@ -67,14 +67,11 @@ public class ClickHouseJdbcSink<T> {
      *
      * *********************/
 
-    /**
-     * author: Juege
-     * description: 对预编译之后的sql语句进行占位符替换
-     * @param ps:     PreparedStatement对象
-     * @param fields: clickhouse表PO对象的属性字段
-     * @param object: clickhouse表PO对象的属性字段所对应的数据类型
-     * @return void
-     */
+/**
+* @Author: 123
+* @Description: setPreparedStatement
+* @DateTime: 2025/2/22 15:22
+*/
     public static void setPreparedStatement(
             PreparedStatement ps,
             Field[] fields,

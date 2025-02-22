@@ -5,19 +5,18 @@ import com.googlecode.aviator.Expression;
 import com.googlecode.aviator.runtime.function.AbstractFunction;
 
 /**
- * author: Juege
- * description: Aviator 工具类, 应用于规则条件的判断
- * date: 2023
- */
+* @Author: 123
+* @Description: AviatorUtil
+* @DateTime: 2025/2/22
+*/
 
 public class AviatorUtil {
 
-    /**
-     * author: Juege
-     * description: 方法重载, 解析字符串表达式
-     * @param str: 字符串表达式,不包含自定义函数, 也不包含变量
-     * @return java.lang.Object
-     */
+/**
+* @Author: 123
+* @Description: execute
+* @DateTime: 2024
+*/
     public static Object execute(String str) {
 
         //执行AviatorEvaluator 对象的 execute(),获取字符串表达式运算后结果
@@ -25,13 +24,11 @@ public class AviatorUtil {
 
     }
 
-    /**
-     * author: Juege
-     * description: 方法重载, 解析字符串表达式
-     * @param str: 字符串表达式, 包含变量
-     * @param map: 变量参数
-     * @return java.lang.Object
-     */
+ /**
+ * @Author: 123
+ * @Description:
+ * @DateTime: 2024
+ */
 //    public static Object execute(
 //            String str,
 //            Map<String,Object> map) {
@@ -43,13 +40,11 @@ public class AviatorUtil {
 //
 //    }
 
-    /**
-     * author: Juege
-     * description: 方法重载, 解析字符串表达式
-     * @param str:   字符串表达式, 包含自定义函数
-     * @param func:  自定义函数
-     * @return java.lang.Object
-     */
+/**
+* @Author: 123
+* @Description: execute
+* @DateTime: 2024
+*/
     public static Object execute(
             String str,
             AbstractFunction func) {

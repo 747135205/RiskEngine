@@ -18,10 +18,10 @@ import java.time.Duration;
 import java.util.Properties;
 
 /**
- * author: Juege
- * description: 事件流工具类
- * date: 2023
- */
+* @Author: 123
+* @Description:
+* @DateTime: 2024
+*/
 
 public class DataStreamUtil {
 
@@ -132,13 +132,11 @@ public class DataStreamUtil {
 
 
 
-    /**
-     * author: Juege
-     * description: 生成指定数据类型的广播流
-     *              T是广播流数据类型, K是广播状态key数据类型, V是广播状态value数据类型
-     * @param dataStream:
-     * @return org.apache.flink.streaming.api.datastream.BroadcastStream
-     */
+ /**
+ * @Author: 123
+ * @Description: broadcastStreamBuilder
+ * @DateTime: 2024
+ */
     public static <T,K,V> BroadcastStream<T> broadcastStreamBuilder(
             DataStream<T> dataStream,
             MapStateDescriptor<K,V> mapState
@@ -174,16 +172,11 @@ public class DataStreamUtil {
     }
 
 
-    /**
-     * author: Juege
-     * description: 事件流和广播流的合并
-     *              T是非广播流(事件流)的数据类型,
-     *              U是广播流的数据类型,
-     *              KEY是分组key的数据类型
-     * @param keyedStream:
-     * @param broadcastStream:
-     * @return org.apache.flink.streaming.api.datastream.BroadcastConnectedStream<T,U>
-     */
+/**
+* @Author: 123
+* @Description: streamConnect
+* @DateTime: 2024
+*/
     public static <T,U,KEY> BroadcastConnectedStream<T,U> streamConnect(
             KeyedStream<T,KEY> keyedStream,
             BroadcastStream<U> broadcastStream
@@ -192,15 +185,11 @@ public class DataStreamUtil {
     }
 
 
-    /**
-     * author: Juege
-     * description: 对合并之后的事件流进行处理
-     *              KEY是分组key的数据类型, T是非广播流的数据类型
-     *              U是广播流的数据类型, OUT是输出的数据类型
-     * @param broadcastConnectedStream:
-     * @param keyedBroadcastProcessFunction:
-     * @return org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator
-     */
+/**
+* @Author: 123
+* @Description: processFuncWithKey
+* @DateTime: 2024
+*/
     public static <T,U,KEY,OUT> SingleOutputStreamOperator<OUT> processFuncWithKey(
             BroadcastConnectedStream<T,U> broadcastConnectedStream,
             KeyedBroadcastProcessFunction<KEY,T,U,OUT> keyedBroadcastProcessFunction
@@ -227,17 +216,11 @@ public class DataStreamUtil {
 
 
 
-    /**
-     * author: Juege
-     * description: 生成 MySQL-CDC 事件流
-     * @param env:
-     * @param parameterTool:
-     * @param properties:
-     * @param table_name:
-     * @param deserializer:
-     * @param source_name:
-     * @return org.apache.flink.streaming.api.datastream.DataStream<T>
-     */
+/**
+* @Author: 123
+* @Description: buildMysqlCDCStream
+* @DateTime: 2024
+*/
     public static <T> DataStream<T> buildMysqlCDCStream(
             StreamExecutionEnvironment env,
             ParameterTool parameterTool,
@@ -268,15 +251,11 @@ public class DataStreamUtil {
 
     }
 
-    /**
-     * author: Juege
-     * description: fromSource 带有水印
-     * @param env:
-     * @param source:
-     * @param serializableTimestampAssigner:
-     * @param source_name:
-     * @return org.apache.flink.streaming.api.datastream.DataStream<T>
-     */
+/**
+* @Author: 123
+* @Description: mysqlCDCFromSourceWithWatermark
+* @DateTime: 2024
+*/
     public static <T> DataStream<T> mysqlCDCFromSourceWithWatermark(
             StreamExecutionEnvironment env,
             MySqlSource<T> source,
@@ -292,14 +271,11 @@ public class DataStreamUtil {
     }
 
 
-    /**
-     * author: Juege
-     * description: fromSource 不带水印
-     * @param env:
-     * @param source:
-     * @param source_name:
-     * @return org.apache.flink.streaming.api.datastream.DataStream<T>
-     */
+/**
+* @Author: 123
+* @Description: mysqlCDCFromSourceNoWatermark
+* @DateTime: 2024
+*/
     public static <T> DataStream<T> mysqlCDCFromSourceNoWatermark(
             StreamExecutionEnvironment env,
             MySqlSource<T> source,

@@ -1,6 +1,5 @@
 package flink.utils;
 
-import com.juege.RiskCtrlSys.flink.redis.sink.RedisSinkByBahirWithString;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.DataStream;
@@ -12,10 +11,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * author: Juege
- * description: Flink写入Redis的工具类
- * date: 2023
- */
+* @Author: 123
+* @Description:
+* @DateTime: 2024
+*/
 
 /* **********************
  *
@@ -78,12 +77,11 @@ public class RedisWriteUtil {
     }
 
 
-    /**
-     * author: Juege
-     * description: 基于Bahir写入Redis，Redis的数据是String类型
-     * @param input:
-     * @return void
-     */
+/**
+* @Author: 123
+* @Description: writeByBahirWithString
+* @DateTime: 2024
+*/
     public static void writeByBahirWithString(DataStream<Tuple2<String,String>> input) {
         input.addSink(new RedisSink<>(JEDIS_CONF,new RedisSinkByBahirWithString()));
     }

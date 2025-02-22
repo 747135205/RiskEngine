@@ -1,18 +1,6 @@
 package flink;
 
-import com.juege.RiskCtrlSys.commons.constants.ConstantsUtil;
-import com.juege.RiskCtrlSys.flink.job.cdc.RuleDebeziumDeserializer;
-import com.juege.RiskCtrlSys.flink.job.cdc.RulesDebeziumDeserializer;
-import com.juege.RiskCtrlSys.flink.job.join.RulesProcessJoinFunction;
-import com.juege.RiskCtrlSys.flink.job.map.RulesFlatMap;
-import com.juege.RiskCtrlSys.flink.job.process.WarningKeyedProcessFunction;
-import com.juege.RiskCtrlSys.flink.job.watermark.RulesSerializableTimestampAssigner;
-import com.juege.RiskCtrlSys.flink.job.watermark.SingleRuleSerializableTimestampAssigner;
-import com.juege.RiskCtrlSys.flink.utils.*;
-import com.juege.RiskCtrlSys.model.ActionPO;
-import com.juege.RiskCtrlSys.model.EventPO;
-import com.juege.RiskCtrlSys.model.RulesPO;
-import com.juege.RiskCtrlSys.model.SingleRulePO;
+
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.KeyedStream;
@@ -22,10 +10,10 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import java.util.Properties;
 
 /**
- * author: Juege
- * description: 基于指标统计计算的动态风控规则判断Job (一个Job执行一个规则组,只有1条规则也要放到规则组)
- * date: 2023
- */
+* @Author: 123
+* @Description:
+* @DateTime: 2024
+*/
 
 public class RuleJudgeJob {
     public static void main(String[] args) throws Exception {

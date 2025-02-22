@@ -12,10 +12,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 /**
- * author: Juege
- * description: Flink读写MySQL工具类
- * date: 2023
- */
+* @Author: 123
+* @Description:
+* @DateTime: 2024
+*/
 
 public class MysqlUtil {
 
@@ -34,19 +34,11 @@ public class MysqlUtil {
     private static ResultSet rs = null;
 
 
-    /**
-     * author: Juege
-     * description: 使用 Flink Table/SQL Api 读取Mysql
-     *
-     * @param env: 流计算上下文环境
-     * @param parameterTool: 参数工具
-     * @param clazz: 流水线输出对象的类
-     * @param tableName: 表名
-     * @param ddlString: DDL字符串
-     * @param sql: SQL查询语句
-     * @return DataStream<T>：DataStream对象
-     * @throws Exception
-     */
+/**
+* @Author: 123
+* @Description: readWithTableOrSQLApi
+* @DateTime: 2024
+*/
     public static <T> DataStream<T> readWithTableOrSQLApi(
             StreamExecutionEnvironment env,
             ParameterTool parameterTool,
@@ -169,12 +161,11 @@ public class MysqlUtil {
     }
 
 
-    /**
-     * author: Juege
-     * description: 初始化 jdbc Connection
-     *
-     * @return void
-     */
+/**
+* @Author: 123
+* @Description: init
+* @DateTime: 2024
+*/
     public static Connection init(ParameterTool parameterTool) {
 
         String _url = parameterTool.get(ParameterConstantsUtil.Mysql_URL);
@@ -189,13 +180,11 @@ public class MysqlUtil {
         return connection;
     }
 
-    /**
-     * author: Juege
-     * description: 生成 PreparedStatement
-     *
-     * @param sql:
-     * @return java.sql.PreparedStatement
-     */
+/**
+* @Author: 123
+* @Description: initPreparedStatement
+* @DateTime: 2024
+*/
     public static PreparedStatement initPreparedStatement(String sql) {
         try {
             preparedStatement = connection.prepareStatement(sql);
@@ -207,12 +196,11 @@ public class MysqlUtil {
     }
 
 
-    /**
-     * author: Juege
-     * description: 关闭 jdbc Connection
-     *
-     * @return void
-     */
+ /**
+ * @Author: 123
+ * @Description: close
+ * @DateTime: 2024
+ */
     public static void close() {
         try {
             // 如果preparedStatement不为null，则关闭preparedStatement
@@ -229,13 +217,11 @@ public class MysqlUtil {
         }
     }
 
-    /**
-     * author: Juege
-     * description: 关闭 PreparedStatement
-     *
-     * @param :
-     * @return void
-     */
+/**
+* @Author: 123
+* @Description: closePreparedStatement
+* @DateTime: 2024
+*/
     public static void closePreparedStatement() {
         try {
             if (preparedStatement != null) {
@@ -246,13 +232,11 @@ public class MysqlUtil {
         }
     }
 
-    /**
-     * author: Juege
-     * description: 关闭 ResultSet
-     *
-     * @param :
-     * @return void
-     */
+/**
+* @Author: 123
+* @Description: closeResultSet
+* @DateTime: 2024
+*/
     public static void closeResultSet() {
         try {
             if (rs != null) {
@@ -263,13 +247,11 @@ public class MysqlUtil {
         }
     }
 
-    /**
-     * author: Juege
-     * description: 执行 sql 语句,
-     *
-     * @param :
-     * @return java.sql.ResultSet
-     */
+/**
+* @Author: 123
+* @Description: executeQuery
+* @DateTime: 2024
+*/
     public static ResultSet executeQuery(PreparedStatement ps) {
         preparedStatement = ps;
         try {

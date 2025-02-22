@@ -1,7 +1,5 @@
 package flink.utils;
 
-import com.juege.RiskCtrlSys.commons.constants.ConstantsUtil;
-import com.juege.RiskCtrlSys.utils.common.CommonUtil;
 import groovy.lang.GroovyClassLoader;
 import groovy.lang.GroovyObject;
 import groovy.lang.Script;
@@ -12,10 +10,10 @@ import java.security.MessageDigest;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * author: Juege
- * description: Groovy 脚本工具类
- * date: 2023
- */
+* @Author: 123
+* @Description:
+* @DateTime: 2024
+*/
 
 public class GroovyUtil {
 
@@ -34,23 +32,21 @@ public class GroovyUtil {
 
 
 
-    /**
-     * author: Juege
-     * description: 生成 Groovy 脚本编译的参数配置对象
-     * @param :
-     * @return org.codehaus.groovy.control.CompilerConfiguration
-     */
+ /**
+ * @Author: 123
+ * @Description: getCompilerConfiguration
+ * @DateTime: 2024
+ */
     private static CompilerConfiguration getCompilerConfiguration() {
         CompilerConfiguration config = new CompilerConfiguration();
         return config;
     }
 
-    /**
-     * author: Juege
-     * description: 生成 GroovyClassLoader 对象
-     * @param :  
-     * @return groovy.lang.GroovyClassLoader 
-     */
+/**
+* @Author: 123
+* @Description: getEngineByClassLoader
+* @DateTime: 2024
+*/
     public static GroovyClassLoader getEngineByClassLoader(String key) {
 
         GroovyClassLoader groovyClassLoader = null;
@@ -87,12 +83,11 @@ public class GroovyUtil {
 
     }
 
-    /**
-     * author: Juege
-     * description: 获取Groovy脚本文件
-     * @param groovyClass:
-     * @return java.io.File
-     */
+/**
+* @Author: 123
+* @Description: getClassByFile
+* @DateTime: 2024
+*/
     private static File getClassByFile(String groovyClass) {
         //获取模块路径
         String modulePath = CommonUtil.getModulePath(ConstantsUtil.MODULE_FLINK);
@@ -102,12 +97,11 @@ public class GroovyUtil {
         return new File(path);
     }
 
-    /**
-     * author: Juege
-     * description: 解析 groovy 脚本
-     * @param groovyClass:
-     * @return void
-     */
+/**
+* @Author: 123
+* @Description: groovyEval
+* @DateTime: 2024
+*/
     public static Object groovyEval(
             String groovyClass,
             String method,
@@ -183,12 +177,11 @@ public class GroovyUtil {
 
     }
 
-    /**
-     * author: Juege
-     * description: 生成groovy脚本代码的md5指纹
-     * @param scriptText:
-     * @return java.lang.String 
-     */
+ /**
+ * @Author: 123
+ * @Description: fingerKey
+ * @DateTime: 2024
+ */
     private static String fingerKey(String scriptText) {
         try {
             // 获取MD5加密实例
@@ -214,7 +207,7 @@ public class GroovyUtil {
     }
 
     /**
-     * author: Juege
+     * author: 123
      * description: File转String
      * @param file:
      * @return java.lang.String
